@@ -1,0 +1,40 @@
+{extend name="base"/}
+{block name="title"}Outfit收藏{/block}
+{block name="main"}
+{include file="common:homepage"/}
+        <main class="page-content">
+
+            <!-- Blog Area -->
+            <div class="cr-section blog-area section-padding-lg">
+                <div class="container">
+                    <div class="row justify-content-center">
+
+                        <!-- Single Blog -->
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                            <article class="blog-item sticky">
+                                <header class="blog-item-header">
+                                    <a href="{:url('Picture/detail')}">
+                                        <img src="__PUBLIC__/docs/img/1.jpg" alt="blog thumb">
+                                    </a>
+                                </header>
+                                <div class="blog-item-body">
+                                    <h6 class="blog-item-title"><a href="blog-details.html">分享一下今天的穿搭</a></h6>
+                                    <p>今天的天气非常好，适合穿......</p>
+                                </div>
+                                <footer class="blog-item-footer">
+                                    <ul class="blog-item-meta">
+                                        <a href="{:url('Collect/cancelcollect')}" style="margin-left:42% ;">取 消 收 藏</a>
+
+                                    </ul>
+                                </footer>
+                            </article>
+                        </div>
+                    </div>
+                    {include file="common:pagination"/}
+                </div>
+            </div>
+            <!--// Blog Area -->
+        </main>
+    </div>
+{/block}
+

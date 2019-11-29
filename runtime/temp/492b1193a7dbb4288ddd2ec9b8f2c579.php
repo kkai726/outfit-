@@ -1,0 +1,96 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:82:"/www/wwwroot/htk.iy3u6.cn/outfit/public/../application/index/view/login/login.html";i:1573002349;}*/ ?>
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Outfit-登录</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <link rel="icon" type="image/png" href="https://assets0.baydn.com/static/img/shanbay_favicon.png">
+    <link rel="stylesheet" href="http://htk.iy3u6.cn/outfit/public/static/user/docs/css/bay-components.min.css">
+    <link rel="stylesheet" href="http://htk.iy3u6.cn/outfit/public/static/user/docs/css/iconbay.css">
+    <link rel="stylesheet" href="http://htk.iy3u6.cn/outfit/public/static/user/docs/css/mobile-ui.css">
+    <link rel="stylesheet" href="http://htk.iy3u6.cn/outfit/public/static/user/docs/css/client-ui.css">
+    <link rel="stylesheet" href="http://htk.iy3u6.cn/outfit/public/static/user/docs/css/account-v2-client-css-ab6b2ab8c08c3dc60418.css">
+</head>
+
+<body>
+    <div class="sb-nav">
+        <div class="nav-top">
+            <div class="container clearfix">
+                <div class="nav-top-left">
+                    <ul>
+                        <li class="nav-brand">
+                            <a href=""><img src="http://htk.iy3u6.cn/outfit/public/static/user/docs/img/logo/123.png" style="width:110px;height:55px"></a>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+        <div class="nav-sub">
+            <div class="container"></div>
+        </div>
+    </div>
+    <div class="main-content container">
+        <div class="login-client-page">
+            <div class="slides" id="slides">
+                <div class="viewport" id="viewport">
+                    <div class="page-view">
+                        <div class="view-container"><img
+                                src="http://htk.iy3u6.cn/outfit/public/static/user/docs/photo/1.jpg" />
+                            <div class="title">个性穿搭</div>
+                            <div class="content">诠释自我态度</div>
+                        </div>
+                    </div>
+                    <div class="page-view">
+                        <div class="view-container"><img
+                                src="http://htk.iy3u6.cn/outfit/public/static/user/docs/photo/5.jpg" />
+                            <div class="title">百变造型</div>
+                            <div class="content">做不一样的自己</div>
+                        </div>
+                    </div>
+                    <div class="page-view">
+                        <div class="view-container"><img
+                                src="http://htk.iy3u6.cn/outfit/public/static/user/docs/photo/3.jpg" />
+                            <div class="title">时尚前沿</div>
+                            <div class="content">了解最新的潮流</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-number">
+                    <div class="page-item"></div>
+                    <div class="page-item"></div>
+                    <div class="page-item"></div>
+                </div>
+            </div>
+            <div class="login-wrap">
+                <h3>欢迎来到Outfit</h3>
+                <form name="login-form" action="" method="post">
+                    <div class="row"><input class="account" type="text" placeholder="用户名"
+                            name="user_account" autoFocus><i class="ib ib-user-o"></i></div>
+                    <div class="row"><input class="password" type="password" placeholder="密码"
+                            name="user_password"><i class="ib ib-lock-o"></i></div>
+                    <div class="clearfix"></div>
+                    <a href="<?php echo url('register/register'); ?>">还没有账号吗？快来注册</a>
+                    <div class="submit-btn-box">
+                        <button class="button login-button" style="blackground-color:ffffff">登录</button>
+                        <!-- <p class="error-msg"></p> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="http://htk.iy3u6.cn/outfit/public/static/user/docs/scripts/raven.min.js"></script>
+    <script src="http://htk.iy3u6.cn/outfit/public/static/user/docs/scripts/jquery.min.js"></script>
+    <script src="http://htk.iy3u6.cn/outfit/public/static/user/docs/scripts/bay-utils.min.js"></script>
+    <script src="http://htk.iy3u6.cn/outfit/public/static/user/docs/scripts/bay-components.min.js"></script>
+    <script src="http://htk.iy3u6.cn/outfit/public/static/user/docs/scripts/jweixin.min.js"></script>
+    <script src="http://htk.iy3u6.cn/outfit/public/static/user/docs/scripts/mobile-common.min.js"></script>
+    <script src="http://htk.iy3u6.cn/outfit/public/static/user/docs/scripts/template.js"></script>
+    <script src="http://htk.iy3u6.cn/outfit/public/static/user/docs/scripts/runtime-2b80a20eb357eeb9fd37.js"></script>
+    <script src="http://htk.iy3u6.cn/outfit/public/static/user/docs/scripts/vendor-52a3c1e18d6a2605f397.js"></script>
+    <script src="http://htk.iy3u6.cn/outfit/public/static/user/docs/scripts/account-v2-client-login-b0ecaa745cbe238bd364.js"></script>
+    <script src="http://htk.iy3u6.cn/outfit/public/static/user/docs/scripts/account-v2-client-css-ab6b2ab8c08c3dc60418.js"></script>
+</body>
+
+</html>

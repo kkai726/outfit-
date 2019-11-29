@@ -1,0 +1,58 @@
+{extend name="base"/}
+{block name="title"}Outfit活动{/block}
+{block name="main"}
+    <div class="breadcrumb-area bg-grey">
+        <div class="container">
+            <div class="cr-breadcrumb">
+                <h2>最新活动</h2>
+                <ul>
+                    <li><a href="{:url('Index/index')}">首页</a></li>
+                    <li>最新活动</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--// Breadcrumb Area -->
+
+    <!-- Page Conttent -->
+    <main class="page-content">
+
+        <!-- Best Pricing -->
+        <div class="cr-section best-pricing-area section-padding-lg bg-white">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="section-title text-center">
+                            <h2>最新活动</h2>
+                            <p>实时更新最前沿的活动赛事~</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    {volist name="info" id="vo"}
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="single-pricing mt-30">
+                            <div class="pricing-top">
+                                <h3><a herf="#">{$vo.activity_name}</a></h3>
+                                <p>{$vo.activity_score}p<span>/Once</span></p>
+                            </div></a>
+                            <div class="pricing-bottom">
+                                <ul>
+                                    <img src="__IMG__/{$vo.activity_post}" style="width:250px;height:250px">
+                                </ul>
+                                <a class="button" href="{:url('activity/detail',['activity_id'=>$vo.activity_id])}" data-content="立即报名">
+                                    <span>立即报名</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {/volist}
+                </div>
+            </div>
+            <!-- {include file="common:pagination"/} -->
+        </div>
+        <!--// Best Pricing -->
+
+    </main>
+{/block}

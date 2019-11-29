@@ -1,0 +1,44 @@
+{extend name="base"/}
+{block name="title"}Outfit个人日志{/block}
+{block name="main"}
+        <main class="page-content">
+
+            <!-- Blog Area -->
+            <div class="cr-section blog-area section-padding-lg">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        {volist name="info" id="vo"}
+                        <!-- Single Blog -->
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                            <article class="blog-item">
+                                <div class="blog-item-body">
+                                    <h4 class="blog-item-title"><a href="{url('log/detail',['log_id'=>$vo.log_id])}">{$vo.log_title}</a></h4>
+                                    <p style="margin-left: 1rem;">{$vo.log_desc}</p>
+                                    <span style="float: right;">{$vo.log_pubtime}</span>
+                                </div>
+                                <footer class="blog-item-footer">
+                                        <ul class="blog-item-meta">
+                                            <li style="float: right;">
+                                                <a href="{:url('log/edit',['log_id'=>$vo.log_id])}">
+                                                    <span class="iconfont icon-bianji"></span>
+                                                </a>
+                                                <a href="{:url('log/del',['log_id'=>$vo.log_id])}">
+                                                    <span class="iconfont icon-shanchu"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+
+                                </footer>
+                            </article>
+                        </div>
+                        {/volist}
+                    </div>
+                    {include file="common:pagination"/}
+                </div>
+            </div>
+            <!-- </div> -->
+            <!--// Blog Area -->
+
+        </main>
+    </div>
+      {/block}

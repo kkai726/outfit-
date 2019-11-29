@@ -1,0 +1,122 @@
+{extend name="base"/}
+{block name="title"}Outfit参加活动{/block}
+{block name="main"}
+
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="cr-breadcrumb">
+            {volist name='info' id='vo'}
+            <h2>{$vo.pic_name}</h2>
+            <ul>
+                <li><a href="{:url('Index/index')}">首页</a></li>
+                <li>参加活动列表</li>
+            </ul>
+            {/volist}
+        </div>
+    </div>
+</div>
+<!--// Breadcrumb Area -->
+
+<!-- Page Conttent -->
+<main class="page-content">
+    <!-- Portfolio Details Area -->
+    <div class="cr-section portfolio-details-area section-padding-lg bg-white">
+        {volist name='info' id='vo'}
+        <div class="container">
+            <div class="portfolio-details-images">
+                <p style="text-align: center"><img src="__IMG__/{$vo.pic}" alt="Portfolio Details Image"></p>
+            </div>
+            <div class="row section-padding-top-sm">
+                <div class="col-lg-4">
+                    <div class="portfolio-details-meta">
+                        <ul>
+                            <li><span class="iconfont icon-yonghu"></span><span>By:</span>{$vo.user_name}</li>
+                            <li><span class="iconfont icon-rili"></span><span>Pub:</span>{$vo.pic_uptime}</li>
+                            <li><span class="iconfont icon-liulanliang"></span><span>View:</span>{$vo.pic_view}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="portfolio-details-info">
+                        <h3 class="small-title-fullwidth"><span>PROJECT INFO</span></h3>
+                        <h5 class="portfolio-title">NAME:{$vo.pic_name}</h5>
+                        <p>{$vo.pic_desc}</p>
+                    </div>
+
+                    <div class="blog-details-bottom">
+                        <div class="blog-details-tags">
+                            <h6>Tags: </h6>
+                            <ul>
+                                <li>{$vo.classify_tag}</li>
+                            </ul>
+                        </div>
+                        <div class="blog-details-share">
+                            <h6>Action: </h6>
+                            <ul>
+                                {if condition = "empty($like) neq true"}
+                                <li><a href="{:url('like/cancellike',['like_id'=>$like.like_id,'pic_id'=>$vo.pic_id])}"><span class="iconfont icon-like-fill"></span></a></li>
+                                {else/}
+                                <li><a href="{:url('like/getlike',['pic_id'=>$vo.pic_id])}"><span class="iconfont icon-like"></span></a></li>
+                                {/if}
+                                {if condition = "empty($collect) neq true"}
+                                <li><a href="{:url('collect/cancelcollect',['collect_id'=>$collect.collect_id,'pic_id'=>$vo.pic_id])}"><span class="iconfont icon-shoucang"></span></a></li>
+                                {else/}
+                                <li><a href="{:url('collect/getcollect',['pic_id'=>$vo.pic_id])}"><span class="iconfont icon-shoucang1"></span></a></li>
+                                {/if}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {/volist}
+    </div>
+</main>
+
+<div class="cr-section blog-area section-padding-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="blog-details">
+                    <div class="commentlist section-padding-top-sm">
+                        <h6 class="small-title">{$com_count} 评论</h6>
+                        {volist name='com' id='vo'}
+                        <div class="single-comment">
+                            <div class="single-comment-thumb">
+                                <img src="__IMG__/{$vo.user_pic}" alt="hastech logo">
+                            </div>
+                            <div class="single-comment-content">
+                                <div class="single-comment-content-top">
+                                    <h6><a href="blog-right-sidebar.html">{$vo.user_name}</a> – {$vo.comment_time}</h6>
+                                </div>
+                                <p>{$vo.comment_desc}</p>
+                            </div>
+                        </div>
+                        {/volist}
+                    </div>
+                    <div class="blog-details-commentbox section-padding-top-sm">
+                        <h6 class="small-title">请发布您的评论</h6>
+                        <form action="{:url('comment/add',['pic_id'=>$vo.pic_id])}" class="karigor-form">
+                            <div class="karigor-form-inner">
+                                <div class="karigor-form-input">
+                                    <textarea id="new-review-textbox" name="comment_desc" cols="30" rows="5" placeholder="评论"></textarea>
+                                </div>
+                                {if condition="$Request.session.user_name != ''"}
+                                <div class="karigor-form-input">
+                                    <button type="submit" class="button">
+                                        <span>评论</span>
+                                    </button>
+                                </div>
+                                {else/}
+                                <a href="{:url('login/login')}"><span>登录后可评论</span></a>
+                                {/if}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{/block}

@@ -1,0 +1,58 @@
+
+{extend name="base"/}
+{block name="title"}Outfit编辑日志{/block}
+{block name="main"}
+
+    <div class="breadcrumb-area bg-grey">
+        <div class="container">
+            <div class="cr-breadcrumb" aling="right">
+                <ul>
+                    <li><a href="{:url('index/index')}">首页</a></li>
+                    <li>日志</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--// Breadcrumb Area -->
+
+    <!-- Page Conttent -->
+    <main class="page-content">
+
+        <!-- Contact Area -->
+        <!-- <div class="cr-section contact-area section-padding-lg bg-white"> -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- <div class="google-map" id="google-map"></div> -->
+                </div>
+            </div>
+            <div class="row section-padding-top-lg">
+                <div class="col-lg-12">
+                    <h4 class="small-title">
+                        <span>编辑日志</span>
+                    </h4>
+                    <form action="" method="POST" id="contact-form" class="karigor-form">
+                        {volist name="info" id="vo"}
+                        <div class="karigor-form-inner">
+                            <div class="karigor-form-input karigor-form-input-half">
+                                <input type="text" name="log_title" placeholder="标题*" value="{$vo.log_title}" required>
+                            </div>
+                            <div class="karigor-form-input">
+                                <textarea name="log_desc" cols="30" rows="5" placeholder="正文*">{$vo.log_desc}</textarea>
+                            </div>
+                            <div class="karigor-form-input">
+                                <button type="submit" class="button">
+                                    <span>完成编辑</span>
+                                </button>
+                            </div>
+                        </div>
+                        {/volist}
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+        <!--// Contact Area -->
+
+    </main>
+{/block}

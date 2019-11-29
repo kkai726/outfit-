@@ -1,0 +1,66 @@
+﻿{extend name="base"/}
+{block name="title"}Outfit穿搭发布{/block}
+{block name="main"}
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="cr-breadcrumb">
+            <h2></h2>
+            <ul>
+                <li><a href="{:url('index/index')}">首页</a></li>
+                <li>穿搭</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--// Breadcrumb Area -->
+
+<!-- Page Conttent -->
+<main class="page-content">
+
+    <!-- Contact Area -->
+    <!-- <div class="cr-section contact-area section-padding-lg bg-white"> -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- <div class="google-map" id="google-map"></div> -->
+            </div>
+        </div>
+        <div class="row section-padding-top-lg">
+            <div class="col-lg-12">
+                <h4 class="small-title">
+                    <span>发布穿搭</span>
+                </h4>
+                <form action="" method="POST" id="contact-form" class="karigor-form" enctype="multipart/form-data">
+                    <div class="karigor-form-inner" >
+                        <div class="karigor-form-input karigor-form-input-half">
+                            <input type="text" name="pic_name" placeholder="标题*" required>
+                        </div>
+
+                        <div class="karigor-form-input">
+                            <textarea name="pic_desc" cols="30" rows="5" placeholder="正文*"></textarea>
+                        </div>
+                        <div>
+                   <select name="classify_id" class="form-control" id="exampleSelect1"  style="width: 200px;height: 40px;margin-top: 20px">
+                         {volist name="class" id="vo"}
+                    <option value="{$vo.classify_id}">{$vo.classify_tag}</option>
+                       {/volist}
+                   </select>
+                        </div>
+                        <input type="file" name="pic" id="pic" style="width:200px;height:50px;float:left;padding-top:10px;margin-top:10px">
+                        <a>发布人:<span>{$Request.session.user_name}</span></a>
+                        <div class="karigor-form-input">
+                            <button type="submit" class="button">
+                                <span>发布</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <p class="form-message"></p>
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+    <!--// Contact Area -->
+
+</main>
+{/block}

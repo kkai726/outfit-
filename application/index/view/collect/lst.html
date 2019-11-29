@@ -1,0 +1,37 @@
+{extend name="base"/}
+{block name="title"}Outfit收藏{/block}
+{block name="main"}
+<main class="page-content">
+    <div class="cr-section blog-area section-padding-lg">
+        <div class="container">
+            <div class="row justify-content-center">
+                {volist name="info" id="vo"}
+                <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                    <article class="blog-item">
+                        <header class="blog-item-header">
+                            <header class="blog-item-header">
+                            {if condition="$type[$i-1] eq 'jpg'|'png'|'gif'"}
+                                <img src="__IMG__/{$vo.pic}"  alt="blog thumb">
+                            {elseif condition="$type[$i-1] eq 'mp4'|'avi'"}
+                                <video src="__IMG__/{$vo.pic}" controls="controls" width="330px" height="440.77px"></video>
+                            {/if}
+                        </header>
+                        <div class="blog-item-body">
+                            <h6 class="blog-item-title"><a href="{:url('Picture/detail',['pic_id'=>$vo.pic_id])}">{$vo.pic_desc}</a></h6>
+                        </div>
+                        <footer class="blog-item-footer">
+                            <ul class="blog-item-meta">
+                                <!-- <li><i class="fa fa-user-o"></i>By <a href="{:url('personal/other',['user_id'=>$vo.user_id])}">{$Request.session.user_name}</a></li> -->
+                                <li><span class="iconfont icon-rili"></span>{$vo.pic_uptime}</li>
+                                <li><span class="iconfont icon-liulanliang"></span>{$vo.pic_view}</a></li>
+
+                            </ul>
+                        </footer>
+                    </article>
+                </div>
+                {/volist}
+            </div>
+        </div>
+    </div>
+</main>
+{/block}

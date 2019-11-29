@@ -1,0 +1,78 @@
+{extend name="base"/}
+{block name="title"}Outfit个人{/block}
+{block name="main"}
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="cr-breadcrumb">
+            <div id="user_header" class="clearfix">
+                <div id="user_sub">
+                    <div class="image">
+                        {volist name="dwb" id="vo"}
+                        <p class="img"><img src="__IMG__/{$vo.user_pic}" width="148" height="148"></p>
+                        {/volist}
+                    </div>
+                    {if condition = "empty($follow) neq true"}
+                    <div class="btn_follow">
+                        <p class="btn"><a href="{:url('Befollow/delfollow',['user_id'=>$vo.user_id])}" class="icon_font over"><span class="txt">取消关注</span></a></p>
+                    </div>
+                    {else/}
+                    <div class="btn_follow">
+                        <p class="btn"><a href="{:url('Befollow/dofollow',['user_id'=>$vo.user_id])}" class="icon_font over"><span class="txt">关注</span></a></p>
+                        <!-- 关注 -->
+                        <input type="hidden" id="follow_user" value="RTLTZNQHUYVQQNCK">
+                        <input type="hidden" id="follow_account" value="RTLTZNQH20190912094508050">
+                    </div>
+                    {/if}
+                </div>
+
+                <div id="user_main">
+                    <section class="intro">
+                        {volist name="dwb" id="vo"}
+                        <h1 class="name">{$vo.user_name}的个人主页<span class="user_type_ico big icon_font wearista"></span></h1>
+                        <div class="meta clearfix">
+
+                            <ul class="info clearfix">
+
+                                <li>@{$vo.user_name}</li>
+
+                                <li>{if $vo.user_gender==0}男{else/}女{/if}</li>
+
+                                <li>{$vo.user_high}</li>
+
+                                <li>{$vo.user_hair}</li>
+
+                                <li>{$vo.user_country}</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="profile">
+                        <p class="txt" data-moretxt="查看更多個人資料" data-closetxt="關閉">{$vo.user_desc}</p>
+                    </section>
+                </div>
+            </div>
+            {/volist}
+        </div>
+    </div>
+</div>
+<div id="gbl_body" class="clearfix" style="margin-bottom: 5%;">
+    <div id="user_menu">
+        <nav class="clearfix">
+            <div class="main">
+                <ul class="clearfix">
+                    <li class="current">
+                        <a href="{:url('Picture/lst',['user_id'=>$vo.user_id])}">-{$count.pic}-<span>穿搭</span></a></li>
+                    <li><a href="{:url('Log/lst',['user_id'=>$vo.user_id])}">-{$count.log}-<span>日志</span></a></li>
+                </ul>
+            </div>
+            <div class="sub">
+                <ul class="clearfix">
+                    <li><a href="{:url('Follow/lst',['user_id'=>$vo.user_id])}">-{$count.follow}-<span>粉丝</span></a></li>
+                    <li><a href="{:url('Concerned/lst',['user_id'=>$vo.user_id])}">-{$count.concerned}-<span>关注</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- 个人简介 -->
+</br>
+{/block}

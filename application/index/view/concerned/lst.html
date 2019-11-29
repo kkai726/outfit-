@@ -1,0 +1,18 @@
+{extend name="base"/}
+{block name="title"}Outfit关注{/block}
+{block name="main"}
+<div class="row" style="margin: 5%;">
+    {volist name='info' id='vo'}
+    <!-- Single Service -->
+    <div class="col-lg-4 col-md-6 col-12">
+        <div class="service text-center">
+            <div  class="pp">
+                    <p class="img"><img src="__IMG__/{$vo.user_pic}" width="148" height="148"></p>
+            </div>
+            <h5><a href="{:url('personal/other',['user_id'=>$vo.user_id])}">{$vo.user_name}</a></h5>
+        </div>
+    </div>
+    {/volist}
+</div>
+{/block}
+

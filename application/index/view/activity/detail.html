@@ -1,0 +1,105 @@
+{extend name="base"/}
+{block name="title"}Outfit报名{/block}
+{block name="main"}
+{volist name="info" id="vo"}
+    <div class="breadcrumb-area bg-grey">
+
+        <div class="container">
+            <div class="cr-breadcrumb">
+
+                <h2>{$vo.activity_name}</h2>
+                <ul>
+                    <li><a href="{:url('index/index')}">首页</a></li>
+                    <li><a href="{:url('activity/lst')}">最新活动</a></li>
+                    <li>{$vo.activity_name}</li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <!--// Breadcrumb Area -->
+    <!-- Page Conttent -->
+    <main class="page-content">
+        <!-- Blog Area -->
+        <div class="cr-section blog-area section-padding-lg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="blog-details">
+
+                            <article class="blog-item sticky">
+
+                                <div class="blog-item-header">
+
+                                    <img src="__IMG__/{$vo.activity_post}" alt="blog thumb" style="width:500px;height:500px">
+
+                                </div>
+                                <div class="blog-item-footer">
+                                    <ul class="blog-item-meta">
+
+                                        <li><i class="fa fa-user-o"></i>By <a href="blog.html">{$vo.admin_name}</a></li>
+                                        <li><i class="fa fa-calendar-o"></i>{$vo.activity_pubtime}</li>
+
+                                        <!-- <li><i class="fa fa-comments-o"></i><a href="#">3 Comments</a></li> -->
+                                    </ul>
+                                </div>
+                                <div class="blog-item-body">
+                                    <h3 class="blog-item-title">活动详情</h3>
+                                    <p>{$vo.activity_desc}</p>
+
+                                </div>
+                            </article>
+                            <div class="karigor-form-input">
+                                {if condition = "empty($enter) neq true"}
+                                <h4 class="small-title">
+                                    <span>您已报名该活动！</span>
+                                </h4>
+                                <a href="{:url('activity/del',['enter_id'=>$enter.enter_id])}"><button type="submit" class="button">
+                                            <span>取消报名</span>
+                                </button></a>
+                                    </div>
+                                </button></a>
+                                {else/}
+                                <div class="col-lg-12">
+                                    <h4 class="small-title">
+                                        <span>活动报名</span>
+                                    </h4>
+                                    <form action="" method="POST" id="contact-form" class="karigor-form" enctype="multipart/form-data">
+                                        <input type="hidden" name="activity_id" value="{$vo.activity_id}">
+                                        <a>报名人:<span>{$Request.session.user_name}</span></a>
+                                        <div class="karigor-form-inner" >
+
+                                            <div class="karigor-form-input karigor-form-input-half">
+                                                <input type="text" name="enter_email" placeholder="报名邮箱*" required>
+                                            </div>
+                                            </div>
+                                        <div class="karigor-form-inner" >
+
+                                            <input type="file" accept="image/*" name="enter_pic" id="file" style="width:200px;height:50px;float:left;padding-top:10px;margin-top:10px">
+                                             {if condition="$Request.session.user_name != ''"}
+                                            <div class="karigor-form-input">
+                                                <button type="submit" class="button">
+                                                    <span>报名</span>
+                                                </button>
+                                            </div>
+                                            {else/}
+                                                <a href="{:url('login/login')}"><span>登录后可报名</span></a>
+                                             {/if}
+                                        </div>
+                                    </form>
+
+                                    <p class="form-message"></p>
+
+                                </div>
+                                {/if}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--// Blog Area -->
+    </main>
+{/volist}
+{/block}

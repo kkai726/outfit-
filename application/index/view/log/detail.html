@@ -1,0 +1,42 @@
+{extend name="base"/}
+{block name="title"}Outfit日志{/block}
+{block name="main"}
+
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="cr-breadcrumb">
+            <h2>今天要分享。。。。</h2>
+            <ul>
+                <li><a href="{:url('Index/index')}">首页</a></li>
+                <li>日志详情</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--// Breadcrumb Area -->
+
+<!-- Page Conttent -->
+<main class="page-content">
+    <!-- Portfolio Details Area -->
+    <div class="cr-section portfolio-details-area section-padding-lg bg-white">
+        <div class="container">
+            <div class="portfolio-details-images">
+                <p style="text-align: center">阳光正好，天气正好，我想分享我日常的穿搭心得。。。。</p>
+            </div>
+            <div class="row section-padding-top-sm">
+                <div class="col-lg-4">
+                    <div class="portfolio-details-meta">
+                        <ul>
+                            <li><span class="iconfont icon-yonghu"></span><span>By:</span>{$vo.user_name}</li>
+                            <li><span class="iconfont icon-rili"></span><span>Pub:</span>{$vo.log_uptime}</li>
+                            <li><span class="iconfont icon-liulanliang"></span><span>View:</span>{$vo.log_view}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+{/block}

@@ -1,0 +1,85 @@
+{extend name="base"/}
+{block name="title"}Outfit个人{/block}
+{block name="main"}
+<div class="breadcrumb-area bg-grey">
+    <div class="container">
+        <div class="cr-breadcrumb">
+            <div id="user_header" class="clearfix">
+                <div id="user_sub">
+                    <div class="image">
+                        <p class="img"><img src="__IMG__/{$Request.session.user_pic}" alt="MISATO " width="148" height="148"></p>
+                    </div>
+                </div>
+
+                <div id="user_main">
+                    <section class="intro">
+                        {volist name="dw" id="vo"}
+                        <h1 class="name">{$vo.user_name}的个人主页<span class="user_type_ico big icon_font wearista"></span></h1>
+                        <div class="meta clearfix">
+
+                            <ul class="info clearfix">
+
+                                <li>@{$vo.user_name}</li>
+
+                                <li>{if $vo.user_gender==0}男{else/}女{/if}</li>
+
+                                <li>{$vo.user_high}</li>
+
+                                <li>{$vo.user_hair}</li>
+
+                                <li>{$vo.user_country}</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="profile">
+                        <p class="txt" data-moretxt="查看更多個人資料" data-closetxt="關閉">{$vo.user_desc}</p>
+                    </section>
+                    <div style="font-size: 12px;">
+                        {if condition="$Think.session.user_status == 3 "}
+                        <li><span class="iconfont icon-daren" style="color: #6610f2;font-size: 30px;"></span></li>我的经验：<span style="color: darkorange;">
+                        <a href="{:url('Superuser/lst',['user_id'=>$vo.user_id])}" style="color: mediumpurple">{$vo.user_exp}</a></span>
+                        {elseif condition="$Think.session.user_status == 2"}
+                        <li><span style="color: #6610f2;font-size: 15px;">正在申请达人中...</span></li></span></li>我的经验：<span style="color: darkorange;">
+                        <a href="{:url('Superuser/lst',['user_id'=>$vo.user_id])}" style="color: mediumpurple">{$vo.user_exp}</a></span>
+                        {else/}
+                        <div>
+                            我的经验：<span style="color: darkorange;">{$vo.user_exp}</span>
+                            <a href="{:url('Superuser/lst',['user_id'=>$vo.user_id])}" style="color: mediumpurple">申请成为达人</a>
+                        </div>
+                        {/if}
+                        <div>
+                            我的积分：<span style="color: darkorange;">{$vo.user_score}</span>
+                            <a href="{:url('Change/apply',['user_id'=>$vo.user_id])}" style="color: mediumpurple">申请余额提现</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/volist}
+        </div>
+    </div>
+</div>
+<!-- 个人简介 -->
+<div id="gbl_body" style="margin-bottom: 5%;" class="clearfix">
+    <div id="user_menu">
+        <nav class="clearfix">
+            <div class="main">
+                <ul class="clearfix">
+                    <li class="current">
+                        <a href="{:url('Picture/lst',['user_id'=>$vo.user_id])}">-{$count.pic}-<span>穿搭</span></a></li>
+                    <li><a href="{:url('Collect/lst',['user_id'=>$vo.user_id])}">-{$count.collect}-<span>收藏</span></a></li>
+                    <li><a href="{:url('Log/lst',['user_id'=>$vo.user_id])}">-{$count.log}-<span>日志</span></a></li>
+                </ul>
+            </div>
+            <div class="sub">
+                <ul class="clearfix">
+                    <!--<li><a href="{:url('Enter/lst',['user_id'=>$vo.user_id])}">-{$count.enter}-<span>活动</span></a></li>-->
+                    <li><a href="{:url('Follow/lst',['user_id'=>$vo.user_id])}">-{$count.follow}-<span>粉丝</span></a></li>
+                    <li><a href="{:url('Concerned/lst',['user_id'=>$vo.user_id])}">-{$count.concerned}-<span>关注</span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+</br>
+{/block}
+
